@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -69,4 +70,15 @@ public class JwtUtils {
                 .getBody();
     }
 
+    /**
+     * 获取账号 而不是用户姓名
+     * @return
+     */
+    public static String getLoginUsername(){
+        if (SecurityContextHolder.getContext().getAuthentication() == null){
+            return "system";
+        }
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return username;
+    }
 }

@@ -1,4 +1,4 @@
-     package com.sport.service;
+package com.sport.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sport.entity.SysUser;

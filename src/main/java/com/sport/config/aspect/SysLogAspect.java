@@ -4,6 +4,7 @@ package com.sport.config.aspect;
 import com.alibaba.fastjson.JSON;
 import com.sport.entity.SysLog;
 import com.sport.service.ISysLogService;
+import com.sport.utils.JwtUtils;
 import com.sport.utils.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -67,6 +68,7 @@ public class SysLogAspect {
             sysLog.setRequestMethod(ServletUtils.getRequest().getMethod());
             // 设置请求参数
             sysLog.setParams(ServletUtils.getRequestParams());
+            sysLog.setRequestUser(JwtUtils.getLoginUsername());
             log.info(JSON.toJSONString(sysLog));
             // 保存数据库
             iSysLogService.save(sysLog);

@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic().authenticationEntryPoint(noLoginHandle)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login", "/pages/**", "/", "/website/**").permitAll()
+                .antMatchers("/user/login", "/pages/**", "/", "/website/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().disable();

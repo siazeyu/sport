@@ -21,6 +21,7 @@ create table sys_user
     id      varchar(20)                         not null comment '账号'
         primary key,
     name        varchar(50)                         not null comment '姓名',
+    sex smallint default 0                          not null comment  '性别',
     password    varchar(50)                         null comment '密码',
     phone       varchar(50)                         null comment '电话号码',
     create_date timestamp default CURRENT_TIMESTAMP not null comment '用户创建日期',
