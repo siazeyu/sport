@@ -2,7 +2,7 @@ logging:
   # 配置日志输出级别
   level:
     com:
-      szy: debug
+      sport: debug
 
 
 spring:
@@ -10,8 +10,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     name: defaultDataSource
     # 数据库账号密码
-    username: 'blue'
-    password: '123123'
+    username: 'root'
+    password: '123456'
     url: jdbc:mysql://localhost:3306/blue?serverTimezone=UTC
   # redis
   redis:
@@ -28,3 +28,11 @@ springfox:
     auto-startup: false
     swagger-ui:
       enabled: false
+
+# JWT密钥
+jwt:
+  secret: sdhgfsbfsdjhgkbdpoger8tuwrqwp
+  #JWT存储的请求头
+  tokenHeader: Authorization
+  #JWT负载中拿到开头，空格别忘了
+  tokenHead: Bearer
