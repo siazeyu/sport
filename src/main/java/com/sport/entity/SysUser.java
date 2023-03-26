@@ -55,5 +55,10 @@ public class SysUser implements Serializable {
     @TableField(exist = false)
     private String token;
 
+    @ApiModelProperty("身高")
+    private Integer height;
+
+    @ApiModelProperty("体重")
+    private Float weight;
 
 }
