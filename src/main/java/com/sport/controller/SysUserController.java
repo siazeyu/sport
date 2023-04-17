@@ -40,6 +40,7 @@ public class SysUserController {
         if (user != null && user.getPassword().equals(encodePwd)){
             user.setToken(JwtUtils.generateToken(username));
             user.setLoginDate(new Date());
+            sysUserService.save(user);
             return user;
         }
         throw new NoUserException(USERNAME_OR_PASSWORD_ERROR.getMessage());
