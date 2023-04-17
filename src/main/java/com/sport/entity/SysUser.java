@@ -1,8 +1,11 @@
 package com.sport.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -28,13 +31,14 @@ public class SysUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("用户ID")
-    @TableId
-    private String id;
+    @TableId(type = IdType.AUTO)
+    private Long id;
 
     @ApiModelProperty("姓名")
     private String name;
 
     @ApiModelProperty("密码")
+    @JSONField(serialize = false)
     private String password;
 
     @ApiModelProperty("性别")

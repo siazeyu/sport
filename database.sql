@@ -18,17 +18,20 @@ create table sys_log
 
 create table sys_user
 (
-    id          varchar(20)                         not null comment '账号'
+    id          bigint auto_increment comment '账号'
         primary key,
-    name        varchar(50)                         not null comment '姓名',
+    name        varchar(50)                         null comment '姓名',
     sex         smallint  default 0                 not null comment '性别',
-    password    varchar(50)                         null comment '密码',
+    password    varchar(50)                         not null comment '密码',
     phone       varchar(50)                         null comment '电话号码',
     create_date timestamp default CURRENT_TIMESTAMP not null comment '用户创建日期',
     login_date  timestamp                           null comment '最后登录日期',
     role        int       default 0                 not null comment '权限标志',
-    height      int                                 not null comment '身高',
-    weight      float                               not null comment '体重kg'
+    height      int       default 0                 null comment '身高',
+    weight      float     default 0                 not null comment '体重kg'
 )
     comment '用户表';
+
+alter table sys_user auto_increment=1000;
+
 
